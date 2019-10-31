@@ -2,7 +2,7 @@
 from django.urls import include, path
 from rest_framework import routers
 from . import views
-from . import main
+# from . import dbsApi
 from django.urls import path
 
 urlpatterns = [
@@ -17,6 +17,6 @@ urlpatterns = [
     # path('', include(router.urls)),
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # path('login/', main.getTransactionDataByRange_cat("01-01-2018","02-01-2019", "2")),
-    path('login/', main.init("limzeyang")),
+    path('login/', views.Data),
     # path('login/', main.init("limzeyang")),
 ]

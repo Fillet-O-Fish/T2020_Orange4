@@ -1,4 +1,4 @@
-from .dbs import dbsApi
+from . import dbsApi
 import json
 import requests
 import simplejson
