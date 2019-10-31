@@ -13,9 +13,22 @@ def getCustDetailsUrl(custId):
     r = requests.get(url, headers=headers)
     return r.json()
 
+def getDepositAccountDetails(custId):
+    url = URL_STR + "/accounts/deposit/" + custId
+    r = requests.get(url, headers=headers)
+    return r.json()
 
-def getTransactionDetailsUrl(accId, fromDate, toDate):
-    url = URL_STR + "/transaction/" + accId + "?from=" + fromDate + "&to=" + toDate
+def getDepositBal(accId, year = None, month = None):
+    url = URL_STR + "/accounts/deposit/" + accId
+    if year is not None and month is not None:
+        url += "/balance?month=" + month + '&year=' + year
+    else:
+        url += "/balance?month&year"
+    r = requests.get(url, headers=headers)
+    return r.json()
+
+def getTransactionDetailsUrl(accId, fromDate='01-01-2018', toDate='01-31-2019'):
+    url = URL_STR + "/transactions/" + accId + "?from=" + fromDate + "&to=" + toDate
     r = requests.get(url, headers=headers)
     return r.json()
 
@@ -24,9 +37,14 @@ def getPersonalMsg(custId):
     r = requests.get(url, headers=headers)
     return r.json()
 
-def getMarketMsg(custId):
-    url = URL_STR + "/marketing/" + custId
+def getMarketMsgList():
+    url = URL_STR + "/marketing"
     r = requests.get(url, headers=headers)
     return r.json()
 
-print(getCustIdUrl("limzeyang"))
+def getMarketMsg(msgId):
+    url = URL_STR + "/marketing/" + msgId
+    r = requests.get(url, headers=headers)
+    return r.json()
+
+#print getPersonalMsg('2')
