@@ -47,8 +47,6 @@ def getMarketMsg(msgId):
     r = requests.get(url, headers=headers)
     return r.json()
 
-#print getPersonalMsg('2')
-
 def getCreditAcc(custId):
     url = URL_STR + "/accounts/credit/" + custId
     r = requests.get(url, headers=headers)
