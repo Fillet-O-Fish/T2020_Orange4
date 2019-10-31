@@ -20,4 +20,10 @@ def getTransactionDetailsUrl(accId, fromDate, toDate):
     url = URL_STR + "/transaction/" + accId + "?from=" + fromDate + "&to=" + toDate
     getFunction(url)
 
+def getPersonalMsg(custId):
+    url = URL_STR + "/message/" + custId
+    getFunction(url)
 
+def getMarketMsg(custId):
+    url = URL_STR + "/marketing/" + custId
+    getFunction(url)
